@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom Out Media | Audiovisual & Estratégia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background-color: #050505; 
+            color: white; 
+            overflow: hidden; 
+            font-family: 'Inter', sans-serif; 
+        }
+        
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(8px) brightness(0.3);
+            transform: scale(1.1);
+        }
+
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, rgba(0,0,0,0.9) 100%);
+            z-index: 0;
+        }
+
+        .carousel-container {
+            perspective: 1500px;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-card {
+            transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            position: absolute;
+            opacity: 0;
+            transform: scale(0.6) translateZ(-300px);
+            user-select: none;
+            width: 350px;
+            max-height: 500px;
+        }
+
+        .menu-card.active {
+            opacity: 1;
+            transform: scale(1) translateZ(0);
+            z-index: 30;
+        }
+
+        .menu-card.prev {
+            opacity: 0.2;
+            transform: translateX(-400px) scale(0.75) rotateY(30deg);
+            z-index: 20;
+        }
+
+        .menu-card.next {
+            opacity: 0.2;
+            transform: translateX(400px) scale(0.75) rotateY(-30deg);
+            z-index: 20;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px rgba(255, 255, 255, 0.12) solid;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.2) transparent;
+        }
+
+        /* Estilização da barra de rolagem interna do texto longo */
+        .glass::-webkit-scrollbar { width: 4px; }
+        .glass::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+
+        .logo-img {
+            height: 150px; /* Ajuste conforme o formato da sua logo */
+            width: auto;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+
+    <div class="video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="stopmotion.mp4" type="video/mp4">
+        </video>
+        <div class="vignette"></div>
+    </div>
+
+    <header class="flex justify-between items-center px-12 py-8 absolute w-full top-0 z-50">
+        <img src="logo.png" alt="Zoom Out Media" class="logo-img">
+        <button class="px-8 py-3 border border-white/20 hover:bg-white hover:text-black transition-all rounded-full text-[10px] font-bold uppercase tracking-[0.25em] glass">
+            Solicitar Orçamento
+        </button>
+    </header>
+
+    <main class="h-screen flex flex-col justify-center items-center relative z-10 pt-16">
+        
+        <div class="carousel-container w-full relative" id="carousel">
+            
+            <div class="menu-card active glass p-8 rounded-[2rem] overflow-y-auto" onclick="rotate(0)">
+                <h3 class="text-yellow-500 text-[10px] font-bold tracking-[0.4em] mb-4 uppercase">A Empresa</h3>
+                <h2 class="text-2xl font-bold mb-6 tracking-tight">QUEM SOMOS</h2>
+                <div class="text-sm text-gray-300 leading-relaxed text-left space-y-4 pr-2">
+                    <p>A <strong>Zoom Out Media</strong> nasceu de forma simples, familiar e cheia de significado. O que começou com o incentivo de amigos e familiares, aos poucos foi se transformando em um sonho possível.</p>
+                    <p>Seus sócios, <strong>Edmir Reinaldo</strong>, técnico audiovisual, fotógrafo e videomaker, e <strong>Arianne Telles</strong>, fotógrafa e designer gráfico, atuam há muitos anos no mercado, acumulando experiência em grandes projetos.</p>
+                    <p>Ao longo dessa trajetória, a procura para que registrassem momentos especiais cresceu de forma natural. Esses pedidos revelaram algo maior: a vontade das pessoas de confiar a eles suas histórias e celebrações mais importantes.</p>
+                    <p>Hoje, somos uma empresa familiar que une técnica, criatividade e emoção para contar histórias reais. Para nós, registrar momentos vai muito além de imagens — é sobre <strong>eternizar sentimentos</strong>.</p>
+                </div>
+            </div>
+
+            <div class="menu-card next glass p-10 text-center rounded-[2rem] flex flex-col justify-center items-center" onclick="rotate(1)">
+                <span class="text-5xl mb-8">📸</span>
+                <h3 class="text-xl font-bold mb-4 tracking-widest uppercase">Cobertura 360º</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Fotografia e Vídeo captados com o olhar sensível de quem entende a importância de cada detalhe.</p>
+                <div class="mt-10 h-[2px] w-12 bg-yellow-500"></div>
+            </div>
+
+            <div class="menu-card glass p-10 text-center rounded-[2rem] flex flex-col justify-center items-center" onclick="rotate(2)">
+                <span class="text-5xl mb-8">🌐</span>
+                <h3 class="text-xl font-bold mb-4 tracking-widest uppercase">Ecossistema Web</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Landing pages exclusivas e interatividade para conectar seus convidados e gerir seu evento.</p>
+                <div class="mt-10 h-[2px] w-12 bg-yellow-500"></div>
+            </div>
+
+            <div class="menu-card prev glass p-10 text-center rounded-[2rem] flex flex-col justify-center items-center" onclick="rotate(3)">
+                <span class="text-5xl mb-8">📡</span>
+                <h3 class="text-xl font-bold mb-4 tracking-widest uppercase">Live Híbrida</h3>
+                <p class="text-sm text-gray-400 leading-relaxed">Transmissão profissional de alta fidelidade para que ninguém fique de fora da sua história.</p>
+                <div class="mt-10 h-[2px] w-12 bg-yellow-500"></div>
+            </div>
+
+        </div>
+
+        <div class="flex gap-10 mt-6 items-center">
+            <button onclick="prev()" class="w-14 h-14 flex items-center justify-center border border-white/10 rounded-full hover:bg-white/10 transition-all text-xl">←</button>
+            <div class="text-[9px] tracking-[0.5em] text-yellow-500/60 font-bold uppercase">Explorar Universo Zoom Out Media</div>
+            <button onclick="next()" class="w-14 h-14 flex items-center justify-center border border-white/10 rounded-full hover:bg-white/10 transition-all text-xl">→</button>
+        </div>
+    </main>
+
+    <script>
+        let currentIndex = 0;
+        const cards = document.querySelectorAll('.menu-card');
+
+        function updateCarousel() {
+            cards.forEach((card, index) => {
+                card.classList.remove('active', 'prev', 'next');
+                if (index === currentIndex) card.classList.add('active');
+                else if (index === (currentIndex + 1) % cards.length) card.classList.add('next');
+                else if (index === (currentIndex - 1 + cards.length) % cards.length) card.classList.add('prev');
+            });
+        }
+
+        function next() { currentIndex = (currentIndex + 1) % cards.length; updateCarousel(); }
+        function prev() { currentIndex = (currentIndex - 1 + cards.length) % cards.length; updateCarousel(); }
+        function rotate(index) { currentIndex = index; updateCarousel(); }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') next();
+            if (e.key === 'ArrowLeft') prev();
+        });
+    </script>
+</body>
+</html>
