@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="logo.png" type="image" />
 </head>
+
 <body>
 
     <div class="video-bg">
@@ -30,16 +32,17 @@
     <div id="modalOrcamento" class="modal-overlay" onclick="if(event.target == this) toggleModal(false)">
         <div class="glass modal-content">
             <button onclick="toggleModal(false)" class="close-btn">&times;</button>
-            
+
             <h2 class="form-title">Solicitar Orçamento</h2>
             <p class="form-subtitle">Vamos eternizar sua história</p>
 
             <form id="formContato" onsubmit="enviarForm(event)">
                 <div class="field-group">
                     <label>Nome Completo</label>
-                    <input type="text" id="nome" required minlength="3" maxlength="60" class="input-zoo" placeholder="Ex: Maria das Graças">
+                    <input type="text" id="nome" required minlength="3" maxlength="60" class="input-zoo"
+                        placeholder="Ex: Maria das Graças">
                 </div>
-                
+
                 <div class="grid-2">
                     <div class="field-group">
                         <label>E-mail</label>
@@ -47,13 +50,15 @@
                     </div>
                     <div class="field-group">
                         <label>WhatsApp</label>
-                        <input type="tel" id="telefone" required placeholder="(00) 00000-0000" class="input-zoo" oninput="maskTel(this)">
+                        <input type="tel" id="telefone" required placeholder="(00) 00000-0000" class="input-zoo"
+                            oninput="maskTel(this)">
                     </div>
                 </div>
 
                 <div class="field-group">
                     <label>Sua Mensagem</label>
-                    <textarea id="mensagem" required minlength="10" maxlength="500" rows="4" class="input-zoo" placeholder="Conte um pouco sobre o evento..."></textarea>
+                    <textarea id="mensagem" required minlength="10" maxlength="500" rows="4" class="input-zoo"
+                        placeholder="Conte um pouco sobre o evento..."></textarea>
                     <div class="char-counter"><span id="charCount">0</span>/500</div>
                 </div>
 
@@ -66,43 +71,61 @@
         <div class="carousel-container w-full relative" id="carousel">
             <div class="menu-card active glass p-8 rounded-[2rem] overflow-y-auto" onclick="rotate(0)">
                 <h3 class="text-green-500 text-[10px] font-bold tracking-[0.4em] mb-4 uppercase">A Empresa</h3>
-                <h2 class="text-2xl font-bold mb-6 tracking-tight">QUEM SOMOS</h2>
+                <h2 class="text-2xl font-bold mb-6 tracking-tigh text-white">QUEM SOMOS</h2>
                 <div class="text-sm text-gray-300 leading-relaxed text-left space-y-4 pr-2">
-                    <p>A <strong>Zoom Out Media</strong> nasceu de forma simples, familiar e cheia de significado. O que começou com o incentivo de amigos e familiares, aos poucos foi se transformando em um sonho possível.</p>
-                    <p>Seus sócios, <strong>Edmir Nascimento</strong>, técnico audiovisual, fotógrafo e videomaker, e <strong>Arianne Teles</strong>, fotógrafa e designer gráfico, atuam há muitos anos no mercado, acumulando experiência em grandes projetos.</p>
-                    <p>Ao longo dessa trajetória, a procura para que registrassem momentos especiais cresceu de forma natural. Esses pedidos revelaram algo maior: a vontade das pessoas de confiar a eles suas histórias e celebrações mais importantes.</p>
-                    <p>Hoje, somos uma empresa familiar que une técnica, criatividade e emoção para contar histórias reais. Para nós, registrar momentos vai muito além de imagens — é sobre <strong>eternizar sentimentos</strong>.</p>
+                    <p>A <strong>Zoom Out Media</strong> nasceu de forma simples, familiar e cheia de significado. O que
+                        começou com o incentivo de amigos e familiares, aos poucos foi se transformando em um sonho
+                        possível.</p>
+                    <p>Seus sócios, <strong>Edmir Nascimento</strong>, técnico audiovisual, fotógrafo e videomaker, e
+                        <strong>Arianne Teles</strong>, fotógrafa e designer gráfico, atuam há muitos anos no mercado,
+                        acumulando experiência em grandes projetos.
+                    </p>
+                    <p>Ao longo dessa trajetória, a procura para que registrassem momentos especiais cresceu de forma
+                        natural. Esses pedidos revelaram algo maior: a vontade das pessoas de confiar a eles suas
+                        histórias e celebrações mais importantes.</p>
+                    <p>Hoje, somos uma empresa familiar que une técnica, criatividade e emoção para contar histórias
+                        reais. Para nós, registrar momentos vai muito além de imagens — é sobre <strong>eternizar
+                            sentimentos</strong>.</p>
                 </div>
             </div>
-<div class="menu-card next glass p-10 text-center rounded-[2rem] flex flex-col justify-center items-center" onclick="rotate(1)">
+            <div class="menu-card next glass p-10 text-center rounded-[2rem] flex flex-col justify-center items-center"
+                onclick="rotate(1)">
                 <span class="text-5xl mb-8">📸</span>
                 <h3 class="text-xl font-bold mb-4 tracking-widest uppercase">Cobertura 360º</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Fotografia e Vídeo captados com o olhar sensível de quem entende a importância de cada detalhe.</p>
+                <p class="text-sm text-gray-400 leading-relaxed">Fotografia e Vídeo captados com o olhar sensível de
+                    quem entende a importância de cada detalhe.</p>
                 <div class="mt-10 h-[2px] w-12 bg-green-500"></div>
             </div>
 
-            <div class="menu-card glass p-10 text-center rounded-[2rem] flex flex-col justify-center items-center" onclick="rotate(2)">
+            <div class="menu-card glass p-10 text-center rounded-[2rem] flex flex-col justify-center items-center"
+                onclick="rotate(2)">
                 <span class="text-5xl mb-8">🌐</span>
                 <h3 class="text-xl font-bold mb-4 tracking-widest uppercase">Convites Personalizados</h3>
                 <p class="text-sm text-gray-400 leading-relaxed">
-						Cada detalhe importa! Por isso, também oferecemos convites digitais personalizados, 
-						criados de forma exclusiva para combinar com o estilo, a identidade e a proposta de cada evento.</p>
+                    Cada detalhe importa! Por isso, também oferecemos convites digitais personalizados,
+                    criados de forma exclusiva para combinar com o estilo, a identidade e a proposta de cada evento.</p>
                 <div class="mt-10 h-[2px] w-12 bg-green-500"></div>
             </div>
 
-            <div class="menu-card prev glass p-10 text-center rounded-[2rem] flex flex-col justify-center items-center" onclick="rotate(3)">
+            <div class="menu-card prev glass p-10 text-center rounded-[2rem] flex flex-col justify-center items-center"
+                onclick="rotate(3)">
                 <span class="text-5xl mb-8">📡</span>
                 <h3 class="text-xl font-bold mb-4 tracking-widest uppercase">Live Híbrida</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Transmissão profissional de alta fidelidade para que ninguém fique de fora da sua história.</p>
+                <p class="text-sm text-gray-400 leading-relaxed">Transmissão profissional de alta fidelidade para que
+                    ninguém fique de fora da sua história.</p>
                 <div class="mt-10 h-[2px] w-12 bg-green-500"></div>
             </div>
 
         </div>
 
         <div class="flex gap-10 mt-6 items-center">
-            <button onclick="prev()" class="w-14 h-14 flex items-center justify-center border border-white/10 rounded-full hover:bg-white/10 transition-all text-xl">←</button>
-            <div class="text-[9px] tracking-[0.5em] text-green-500/60 font-bold uppercase">Explorar Universo Zoom Out Media</div>
-            <button onclick="next()" class="w-14 h-14 flex items-center justify-center border border-white/10 rounded-full hover:bg-white/10 transition-all text-xl">→</button>
+            <button onclick="prev()"
+                class="w-14 h-14 flex items-center justify-center border border-white/10 rounded-full hover:bg-white/10 transition-all text-xl text-white">←</button>
+            <div class="text-[9px] tracking-[0.5em] text-green-500/60 font-bold uppercase animate">Explorar Universo
+                Zoom Out
+                Media</div>
+            <button onclick="next()"
+                class="w-14 h-14 flex items-center justify-center border border-white/10 rounded-full hover:bg-white/10 transition-all text-xl text-white">→</button>
         </div>
     </main>
 
@@ -110,6 +133,10 @@
         // Lógica do Carrossel
         let currentIndex = 0;
         const cards = document.querySelectorAll('.menu-card');
+        const animateElement = document.getElementsByClassName("animate");
+        const animateWord = animateElement[0].innerText;
+
+        typeWriter(animateElement[0], animateWord);
 
         function updateCarousel() {
             cards.forEach((card, index) => {
@@ -123,7 +150,7 @@
         function rotate(index) { currentIndex = index; updateCarousel(); }
         function next() { currentIndex = (currentIndex + 1) % cards.length; updateCarousel(); }
         function prev() { currentIndex = (currentIndex - 1 + cards.length) % cards.length; updateCarousel(); }
-		document.addEventListener('keydown', (e) => {
+        document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') next();
             if (e.key === 'ArrowLeft') prev();
         });
@@ -142,35 +169,58 @@
             i.value = v.substring(0, 15);
         }
 
-        document.getElementById('mensagem').addEventListener('input', function() {
+        document.getElementById('mensagem').addEventListener('input', function () {
             document.getElementById('charCount').innerText = this.value.length;
         });
 
-    function enviarForm(e) {
-    e.preventDefault();
-    
-    // Captura os dados
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const telefone = document.getElementById('telefone').value;
-    const mensagem = document.getElementById('mensagem').value;
+        function typeWriter(element, text, speed = 60, callback) {
+            let index = 0;
 
-    // Formata a mensagem para o WhatsApp
-    const textoWhatsApp = `*Novo Orçamento - Zoom Out Media*%n%n` +
-                         `*Nome:* ${nome}%n` +
-                         `*E-mail:* ${email}%n` +
-                         `*Telefone:* ${telefone}%n` +
-                         `*Mensagem:* ${mensagem}`;
+            element.textContent = "";
+            element.classList.add("type-cursor");
 
-    // Seu número de WhatsApp (DDD + Número)
-    const meuNumero = "5531988726841"; 
+            function write() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(write, speed);
+                } else {
+                    element.classList.remove("type-cursor"); // remove cursor ao final
+                    if (callback) callback();
+                }
+            }
 
-    // Abre o WhatsApp
-    window.open(`https://wa.me/${meuNumero}?text=${encodeURIComponent(textoWhatsApp.replace(/%n/g, '\n'))}`, '_blank');
-    
-    toggleModal(false);
-    e.target.reset();
-}
+            write();
+        }
+
+
+
+        function enviarForm(e) {
+            e.preventDefault();
+
+            // Captura os dados
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Formata a mensagem para o WhatsApp
+            const textoWhatsApp = `*Novo Orçamento - Zoom Out Media*%n%n` +
+                `*Nome:* ${nome}%n` +
+                `*E-mail:* ${email}%n` +
+                `*Telefone:* ${telefone}%n` +
+                `*Mensagem:* ${mensagem}`;
+
+            // Seu número de WhatsApp (DDD + Número)
+            const meuNumero = "5531988726841";
+
+            // Abre o WhatsApp
+            window.open(`https://wa.me/${meuNumero}?text=${encodeURIComponent(textoWhatsApp.replace(/%n/g, '\n'))}`, '_blank');
+
+            toggleModal(false);
+            e.target.reset();
+        }
     </script>
 </body>
+
 </html>
