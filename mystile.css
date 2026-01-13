@@ -1,6 +1,32 @@
+:root {
+    /* Base */
+    --color-bg-main: #050505;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-light: #ccc;
+
+    /* Destaques */
+    --color-gold: #eab308;
+    --color-green: lightgreen;
+    --color-green-solid: green;
+
+    /* Transparências recorrentes */
+    --white-02: rgba(255, 255, 255, 0.2);
+    --white-03: rgba(255, 255, 255, 0.03);
+    --white-05: rgba(255, 255, 255, 0.05);
+    --white-10: rgba(255, 255, 255, 0.1);
+    --white-12: rgba(255, 255, 255, 0.12);
+    --white-50: rgba(255, 255, 255, 0.5);
+
+    --black-80: rgba(0, 0, 0, 0.8);
+    --black-90: rgba(0, 0, 0, 0.9);
+    --black-shadow: rgba(0, 0, 0, 0.6);
+}
+
+
 /* Configurações Globais */
 body {
-    background-color: #050505;
+    background-color: var(--color-bg-main);
     overflow: hidden;
 }
 
@@ -28,7 +54,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.9) 100%);
+    background: radial-gradient(circle, transparent 20%, var(--black-90) 100%);
     z-index: 0;
 }
 
@@ -51,19 +77,19 @@ body {
 
 .btn-orcamento {
     padding: 0.75rem 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 9999px;
     font-size: 12px;
-    color: lightgreen;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.25em;
     transition: all 0.3s ease;
+    border: 1px solid var(--white-02);
+    color: var(--color-green);
 }
 
 .btn-orcamento:hover {
-    background: white;
-    color: black;
+    background: var(--color-white);
+    color: var(--color-black);
 }
 
 
@@ -77,12 +103,12 @@ body {
 
 /* Glassmorphism */
 .glass {
-    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px);
-    border: 1px rgba(255, 255, 255, 0.12) solid;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    background: var(--white-03);
+    border: 1px var(--white-12) solid;
+    box-shadow: 0 30px 60px var(--black-shadow);
+    scrollbar-color: var(--white-02) transparent;
 }
 
 .glass::-webkit-scrollbar {
@@ -90,7 +116,7 @@ body {
 }
 
 .glass::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--white-02);
     border-radius: 10px;
 }
 
@@ -103,7 +129,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: 100;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--black-80);
     backdrop-filter: blur(15px);
     align-items: center;
     justify-content: center;
@@ -129,7 +155,7 @@ body {
     top: 1.5rem;
     right: 2rem;
     font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--white-50);
 }
 
 /* Formulário */
@@ -137,7 +163,7 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: white;
+    color: var(--color-white);
 }
 
 .form-subtitle {
@@ -146,7 +172,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.3em;
     margin-bottom: 2rem;
-    color: white;
+    color: var(--color-white);
 }
 
 .field-group {
@@ -169,9 +195,9 @@ body {
 }
 
 .input-zoo {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
+    background: var(--white-05);
+    border: 1px solid var(--white-10);
+    color: var(--color-white);
     padding: 12px;
     border-radius: 12px;
     width: 100%;
@@ -179,7 +205,7 @@ body {
 }
 
 .input-zoo:focus {
-    border-color: #eab308;
+    border-color: var(--color-gold);
 }
 
 .char-counter {
@@ -192,8 +218,8 @@ body {
 .btn-submit {
     width: 100%;
     padding: 1rem;
-    background: green;
-    color: black;
+    background: var(--color-green-solid);
+    color: var(--color-black);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -251,7 +277,7 @@ body {
 .card-label {
     font-size: 10px;
     font-weight: 700;
-    color: #eab308;
+    color: var(--color-gold);
     letter-spacing: 0.4em;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -266,7 +292,7 @@ body {
 .card-text {
     font-size: 0.85rem;
     line-height: 1.6;
-    color: #ccc;
+    color: var(--color-gray-light);
     text-align: left;
 }
 
@@ -276,10 +302,10 @@ body {
 @media (max-width: 600px) {
     .btn-orcamento {
         padding: 0.60rem 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        border: 1px solid var(--white-02);
+        color: var(--color-green);
         border-radius: 9999px;
         font-size: 11px;
-        color: lightgreen;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.20em;
