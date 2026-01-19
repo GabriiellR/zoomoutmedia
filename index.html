@@ -2,15 +2,13 @@
 <html lang="pt-br">
 
 <head>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoom Out Media | Audiovisual & Estratégia</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="mystile.css">
+    <link rel="stylesheet" href="source/css/mystile.css">
+    <link rel="shortcut icon" href="source/images/logo.png" type="image" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="logo.png" type="image" />
 </head>
 
 <body>
@@ -18,13 +16,13 @@
     <div class="teste">
         <div class="video-bg">
             <video autoplay muted loop playsinline>
-                <source src="stopmotion.mp4" type="video/mp4">
+                <source src="source/videos/stopmotion.mp4" type="video/mp4">
             </video>
             <div class="vignette"></div>
         </div>
 
         <header class="main-header">
-            <img src="logo.png" alt="Zoom Out Media" class="logo-img">
+            <img src="source/images/logo.png" alt="Zoom Out Media" class="logo-img">
             <button onclick="toggleModal(true)" class="btn-orcamento glass animate-pulse">
                 Solicitar Orçamento
             </button>
@@ -137,6 +135,8 @@
             </div>
         </main>
     </div>
+
+    <script type="text/javascript" src="source/js/tailwind.js"></script>
     <script>
         // Lógica do Carrossel
         let currentIndex = 0;

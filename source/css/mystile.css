@@ -1,0 +1,328 @@
+:root {
+    --color-bg-main: #050505;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-light: #ccc;
+
+    --color-green: lightgreen;
+    --color-green-solid: green;
+
+    --white-02: rgba(255, 255, 255, 0.2);
+    --white-03: rgba(255, 255, 255, 0.03);
+    --white-05: rgba(255, 255, 255, 0.05);
+    --white-10: rgba(255, 255, 255, 0.1);
+    --white-12: rgba(255, 255, 255, 0.12);
+    --white-50: rgba(255, 255, 255, 0.5);
+
+    --black-80: rgba(0, 0, 0, 0.8);
+    --black-90: rgba(0, 0, 0, 0.9);
+    --black-shadow: rgba(0, 0, 0, 0.6);
+}
+
+
+
+body {
+    background-color: var(--color-bg-main);
+    overflow: hidden;
+}
+
+.video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px) brightness(0.3);
+    transform: scale(1.1);
+}
+
+.vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 20%, var(--black-90) 100%);
+    z-index: 0;
+}
+
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 50;
+}
+
+.logo-img {
+    height: 130px;
+    width: auto;
+}
+
+.btn-orcamento {
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    transition: all 0.3s ease;
+    border: 1px solid var(--white-02);
+    color: var(--color-green);
+}
+
+.btn-orcamento:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+}
+
+
+.carousel-container {
+    perspective: 1500px;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.glass {
+    backdrop-filter: blur(20px);
+    scrollbar-width: thin;
+    background: var(--white-03);
+    border: 1px var(--white-12) solid;
+    box-shadow: 0 30px 60px var(--black-shadow);
+    scrollbar-color: var(--white-02) transparent;
+}
+
+.glass::-webkit-scrollbar {
+    width: 4px;
+}
+
+.glass::-webkit-scrollbar-thumb {
+    background: var(--white-02);
+    border-radius: 10px;
+}
+
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: var(--black-80);
+    backdrop-filter: blur(15px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 500px;
+    padding: 2.5rem;
+    border-radius: 2.5rem;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    color: var(--white-50);
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-white);
+}
+
+.form-subtitle {
+    font-size: 0.7rem;
+    color: #eab308;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 2rem;
+    color: var(--color-white);
+}
+
+.field-group {
+    margin-bottom: 1rem;
+}
+
+.field-group label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.input-zoo {
+    background: var(--white-05);
+    border: 1px solid var(--white-10);
+    color: var(--color-white);
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+    outline: none;
+}
+
+.input-zoo:focus {
+    border-color: var(--color-green);
+}
+
+.char-counter {
+    font-size: 9px;
+    text-align: right;
+    opacity: 0.4;
+    margin-top: 4px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-green-solid);
+    color: var(--color-black);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    border-radius: 0.75rem;
+    margin-top: 1rem;
+}
+
+.main-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-container {
+    perspective: 1500px;
+    height: 550px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-card {
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.6) translateZ(-300px);
+    user-select: none;
+    width: 350px;
+    max-height: 430px;
+}
+
+.menu-card.active {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+    z-index: 30;
+}
+
+.menu-card.prev {
+    opacity: 0.2;
+    transform: translateX(-400px) scale(0.75) rotateY(30deg);
+    z-index: 20;
+}
+
+.menu-card.next {
+    opacity: 0.2;
+    transform: translateX(400px) scale(0.75) rotateY(-30deg);
+    z-index: 20;
+}
+
+.card-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-green);
+    letter-spacing: 0.4em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.card-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--color-gray-light);
+    text-align: left;
+}
+
+
+
+
+@media (max-width: 600px) {
+    .btn-orcamento {
+        padding: 0.60rem 1rem;
+        border: 1px solid var(--white-02);
+        color: var(--color-green);
+        border-radius: 9999px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.20em;
+        transition: all 0.3s ease;
+    }
+
+    .logo-img {
+        height: 90px;
+        width: auto;
+    }
+
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        z-index: 50;
+    }
+
+    .teste {
+        position: fixed;
+    }
+
+}
