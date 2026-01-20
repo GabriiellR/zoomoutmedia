@@ -138,6 +138,15 @@
 
     <script type="text/javascript" src="source/js/tailwind.js"></script>
     <script>
+
+        debugger;
+        const url = new URLSearchParams(window.location.search);
+        const modalOpen = url.get('modal');
+
+        if (parseInt(modalOpen)) {
+            toggleModal(true);
+        }
+
         // Lógica do Carrossel
         let currentIndex = 0;
         const cards = document.querySelectorAll('.menu-card');
