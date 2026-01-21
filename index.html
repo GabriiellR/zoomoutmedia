@@ -37,25 +37,25 @@
 
                 <form id="formContato" onsubmit="enviarForm(event)">
                     <div class="field-group">
-                        <label>Nome Completo</label>
+                        <label class="text-white">Nome Completo</label>
                         <input type="text" id="nome" required minlength="3" maxlength="60" class="input-zoo"
                             placeholder="Ex: Maria das Graças">
                     </div>
 
                     <div class="grid-2">
                         <div class="field-group">
-                            <label>E-mail</label>
+                            <label class="text-white">E-mail</label>
                             <input type="email" id="email" required class="input-zoo" placeholder="exemplo@email.com">
                         </div>
                         <div class="field-group">
-                            <label>WhatsApp</label>
+                            <label class="text-white">WhatsApp</label>
                             <input type="tel" id="telefone" required placeholder="(00) 00000-0000" class="input-zoo"
                                 oninput="maskTel(this)">
                         </div>
                     </div>
 
                     <div class="field-group">
-                        <label>Sua Mensagem</label>
+                        <label class="text-white">Sua Mensagem</label>
                         <textarea id="mensagem" required minlength="10" maxlength="500" rows="4" class="input-zoo"
                             placeholder="Conte um pouco sobre o evento..."></textarea>
                         <div class="char-counter"><span id="charCount">0</span>/500</div>
